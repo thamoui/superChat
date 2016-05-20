@@ -179,10 +179,10 @@ $$('#sendPhoto').on('click', function () {
 function login() {
     chattr.prompt('What is your name (or email)?', function (data) {
         username = data;
-        
+        //checkIfUserExists(username);
 
         if (username != '') {
-            //checkIfUserExists(username);
+
             chattr.alert('Ok, you are now logged in as ' + username + ' ;)');
             newUser = users.push({ name: username });
             userId = newUser.name();
@@ -200,22 +200,64 @@ function login() {
 }
 login();
 
+// var ref = new Firebase("https://torrid-inferno-4962.firebaseio.com/Users");
+// var users = ref.child("Users");
 
-// Detecting if data exists. This snippet detects if a user ID is already taken
+// var log = document.getElementById('log');
+
+// document.getElementById('init').addEventListener('click', function(event) {
+//     var username = prompt('What user do you want to create?');
+//     //users.child(username).set({ name: username });
+//     users.once('value', function(snapshot) {
+//         if (!snapshot.hasChild(username)) {
+//             users.child(username).set({ name: username });
+//         }
+//         else {
+//             alert("That user already exists");
+//         }
+//     });
+// });
+
+// users.on('child_added', function(snapshot) {
+//     var val = snapshot.val();
+//     var pre = document.createElement('pre');
+//     pre.id = val.name;
+//     pre.innerText = JSON.stringify(val);
+//     log.appendChild(pre);
+// });
+
+// users.on('child_changed', function(snapshot) {
+//     var val = snapshot.val();
+//     var pre = document.getElementById(val.name);
+//     pre.innerText = JSON.stringify(val);
+// });
 
 
-function userExistsCallback(username, exists) {
-    if (exists) {
-        alert('user ' + username + ' exists!');
-    } else {
-        alert('user ' + username + ' does not exist!');
-    }
-}
 
-// Tests to see if /users/ has any data. 
-function checkIfUserExists(username) {
-    users.child(username).once('value', function (snapshot) {
-        var exists = (snapshot.val() !== null);
-        userExistsCallback(username, exists);
-    });
-}
+// // Detecting if data exists. This snippet detects if a user name is already taken
+// function userExistsCallback(username, exists) {
+//     if (exists) {
+//         alert('user ' + username + ' exists!');
+//     } else {
+//         alert('user ' + username + ' does not exist!');
+//     }
+// }
+
+// // Tests to see if /users/ has any data. 
+// function checkIfUserExists(username) {
+//     users.child("name").once('value', function (snapshot) {
+//         var exists = (snapshot.val() !== null);
+//         userExistsCallback(username, exists);
+//     });
+// }
+
+// var q = users.child('Users').orderByChild('name').equalTo(data);
+//         q.once('value', function (snapshot) {
+//             if (snapshot.val() === null) {
+//                 // username does not yet exist, go ahead and add new user 
+//                 alert('user ' + username + ' does not exist!');
+//             } else {
+//                 // username already exists, ask user for a different name
+//                 alert('user ' + username + ' exists!');
+//             }
+//         });

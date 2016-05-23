@@ -263,8 +263,10 @@ login();
 //         });
 
 // ".validate": "newData.isString() && newData.val().length < 100"
+
 // ".write": "!data.exists() || !newData.exists()"
 // {
+
 //   ".write": "root.child('allow_writes').val() === true &&
 //             !data.parent().child('readOnly').exists() &&
 //             newData.child('foo').exists()"

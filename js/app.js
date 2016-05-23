@@ -175,7 +175,7 @@ $$('#sendPhoto').on('click', function () {
     });
 });
 
-// Login
+// Login for the chat
 function login() {
     chattr.prompt('What is your name (or email)?', function (data) {
         username = data;

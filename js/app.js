@@ -13,7 +13,7 @@ var users = new Firebase("https://torrid-inferno-4962.firebaseio.com/Users");
 var username, userId, newUser, avatar = false, lastDate, messagesLoaded, usersLoaded;
 var $$ = Dom7;
 var chattr = new Framework7({
-    modalTitle: 'Chattr Login',
+    modalTitle: 'Simplon Chat Login',
     animateNavBackIcon: true,
 });
 
